@@ -1,4 +1,4 @@
-﻿namespace TicketApp.Data
+﻿namespace TicketApp.Data.Enum
 {
     public enum MovieCategory
     {
