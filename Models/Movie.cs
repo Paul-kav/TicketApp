@@ -1,4 +1,4 @@
-﻿using TicketApp.Data;
+﻿using TicketApp.Data.Enum;
 
 namespace TicketApp.Models
 {
