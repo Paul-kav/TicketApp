@@ -1,11 +1,15 @@
-﻿namespace TicketApp.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace TicketApp.Models
 {
     public class Cinema
     {
         public int Id { get; set; }
         public string? FullName { get; set; }
         public string? Description { get; set; }
+
         //Relationship
+        [NotMapped]
         public List<Movie>? Movies { get; set; }
     }
 }

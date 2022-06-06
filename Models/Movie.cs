@@ -1,4 +1,5 @@
-﻿using TicketApp.Data.Enum;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using TicketApp.Data.Enum;
 
 namespace TicketApp.Models
 {
@@ -16,11 +17,13 @@ namespace TicketApp.Models
         public List<Actor_Movie>? Actors_Movies { get; set; }
 
         //Cinema
-        public Cinema? CinemaId { get; set; }
+        //public Cinema? CinemaId { get; set; }
+        //ForeignKey("CinemaId")]
         public Cinema? Cinema { get; set; }
 
+
         //Producer
-        public Producer? ProducerId { get; set; }
+        //public Producer? ProducerId { get; set; }
         public Producer? Producer { get; set; }
     }
 }
