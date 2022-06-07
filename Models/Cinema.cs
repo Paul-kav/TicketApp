@@ -11,5 +11,10 @@ namespace TicketApp.Models
         //Relationship
         [NotMapped]
         public List<Movie>? Movies { get; set; }
+
+        //public static implicit operator Cinema(int v)
+        //{
+           // throw new NotImplementedException();
+       // }
     }
 }

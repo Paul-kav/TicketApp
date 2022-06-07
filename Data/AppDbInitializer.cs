@@ -45,8 +45,9 @@ namespace TicketApp.Data
                            FullName = "Cinema 5",
                            Description = "The dollar."
                        },
-                       
+                      
                    });
+                    context.SaveChanges();
                 }
                 //Actors
                 if(!context.Actors.Any())
@@ -77,6 +78,7 @@ namespace TicketApp.Data
                             Biography = "The star of the oceania."
                         }
                     });
+                    context.SaveChanges();
                 }
                 //Producers
                 if(!context.Producers.Any())
@@ -114,6 +116,7 @@ namespace TicketApp.Data
 
                         }
                     });
+                    context.SaveChanges();
                 }
                 //Movies
                 if(!context.Movies.Any())
@@ -176,12 +179,13 @@ namespace TicketApp.Data
                             MovieCategory = MovieCategory.Action
                         }
                     });
+                    context.SaveChanges();
                 };
                 //Actors and Movies
                 if(!context.Actors_Movies.Any())
                 {
                     context.Actors_Movies.AddRange(new List<Actor_Movie>()
-                    { 
+                    {
                         new Actor_Movie()
                         {
                             ActorId = 1,
@@ -268,7 +272,8 @@ namespace TicketApp.Data
                             MovieId = 6
                         }
 
-                    })
+                    });
+                    context.SaveChanges();
                 }
             }
         }
