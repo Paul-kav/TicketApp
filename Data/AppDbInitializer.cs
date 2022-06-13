@@ -129,7 +129,7 @@ namespace TicketApp.Data
                             Description = "The attack on the Indian ocean waters.",
                             StartDate = DateTime.Now.AddDays(-10),
                             EndDate = DateTime.Now.AddDays(-2),
-                            CinemaId = 1,
+                            CinemaId = 3,
                             ProducerId = 3,
                             Price = 14.99,
                             MovieCategory = MovieCategory.Documentary
@@ -141,7 +141,7 @@ namespace TicketApp.Data
                             StartDate = DateTime.Now.AddDays(3),
                             EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
-                            ProducerId = 5,
+                            ProducerId = 1,
                             Price = 40.46,
                             MovieCategory = MovieCategory.Documentary
                         },
@@ -151,8 +151,8 @@ namespace TicketApp.Data
                             Description = "The movie description",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(3),
-                            CinemaId = 1,
-                            ProducerId = 1,
+                            CinemaId = 4,
+                            ProducerId = 4,
                             Price = 20.17,
                             MovieCategory = MovieCategory.Horror
                         },
@@ -162,8 +162,8 @@ namespace TicketApp.Data
                             Description = "The rust movie description.",
                             StartDate = DateTime.Now,
                             EndDate = DateTime.Now.AddDays(7),
-                            CinemaId = 4,
-                            ProducerId = 4,
+                            CinemaId = 1,
+                            ProducerId = 2,
                             Price = 16.50,
                             MovieCategory = MovieCategory.Comedy
                         },
@@ -172,12 +172,24 @@ namespace TicketApp.Data
                             Name = "Law and Order",
                             Description = "The movie description",
                             StartDate = DateTime.Now.AddDays(-10),
-                            EndDate = DateTime.Now.AddDays(-2),
+                            EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
                             ProducerId = 3,
                             Price = 67.12,
                             MovieCategory = MovieCategory.Action
+                        },
+                        new Movie()
+                        {
+                            Name = "Order in the house",
+                            Description = "The movie description",
+                            StartDate = DateTime.Now.AddDays(-10),
+                            EndDate = DateTime.Now.AddDays(10),
+                            CinemaId = 1,
+                            ProducerId = 5,
+                            Price = 67.12,
+                            MovieCategory = MovieCategory.Documentary
                         }
+
                     });
                     context.SaveChanges();
                 };
