@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using TicketApp.Data;
 
 namespace TicketApp.Controllers
@@ -11,10 +12,10 @@ namespace TicketApp.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _context.Actors.ToList();
-            return View();
+            var allActors = await _context.Actors.ToListAsync();
+            return View(allActors);
         }
     }
 }
