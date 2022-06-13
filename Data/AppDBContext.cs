@@ -11,15 +11,15 @@ namespace TicketApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //defining actor_movie
+            //defining the actor_movie
             modelBuilder.Entity<Actor_Movie>().HasKey(am => new
             {
                 am.ActorId,
                 am.MovieId
             });
             //defining actor_movie to be a joining model
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actors_Movies).HasForeignKey(am => am.MovieId);
-            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actors_Movies).HasForeignKey(am => am.ActorId);
+            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Movie).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.MovieId);
+            modelBuilder.Entity<Actor_Movie>().HasOne(m => m.Actor).WithMany(am => am.Actors_Movies).HasForeignKey(m => m.ActorId);
 
             base.OnModelCreating(modelBuilder);
         }
