@@ -131,7 +131,7 @@ namespace TicketApp.Data
                             EndDate = DateTime.Now.AddDays(-2),
                             CinemaId = 3,
                             ProducerId = 3,
-                            Price = 14.99,
+                            Price = 14,
                             MovieCategory = MovieCategory.Documentary
                         },
                         new Movie()
@@ -142,7 +142,7 @@ namespace TicketApp.Data
                             EndDate = DateTime.Now.AddDays(20),
                             CinemaId = 1,
                             ProducerId = 1,
-                            Price = 40.46,
+                            Price = 40,
                             MovieCategory = MovieCategory.Documentary
                         },
                         new Movie()
@@ -153,7 +153,7 @@ namespace TicketApp.Data
                             EndDate = DateTime.Now.AddDays(3),
                             CinemaId = 4,
                             ProducerId = 4,
-                            Price = 20.17,
+                            Price = 20,
                             MovieCategory = MovieCategory.Horror
                         },
                         new Movie()
@@ -164,7 +164,7 @@ namespace TicketApp.Data
                             EndDate = DateTime.Now.AddDays(7),
                             CinemaId = 1,
                             ProducerId = 2,
-                            Price = 16.50,
+                            Price = 16,
                             MovieCategory = MovieCategory.Comedy
                         },
                         new Movie()
@@ -175,7 +175,7 @@ namespace TicketApp.Data
                             EndDate = DateTime.Now.AddDays(-5),
                             CinemaId = 1,
                             ProducerId = 3,
-                            Price = 67.12,
+                            Price = 67,
                             MovieCategory = MovieCategory.Action
                         },
                         new Movie()
@@ -186,7 +186,7 @@ namespace TicketApp.Data
                             EndDate = DateTime.Now.AddDays(10),
                             CinemaId = 1,
                             ProducerId = 5,
-                            Price = 67.12,
+                            Price = 67,
                             MovieCategory = MovieCategory.Documentary
                         }
 

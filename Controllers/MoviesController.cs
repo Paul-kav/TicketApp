@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 using TicketApp.Data;
 
 namespace TicketApp.Controllers
@@ -13,8 +15,8 @@ namespace TicketApp.Controllers
 
         public IActionResult Index()
         {
-            var allMovies = _context.Movies.ToList();
-            return View();
+            var allMovies = _context.Movies.Include(n => n.Cinema).OrderBy(n => n.Name).ToList();
+            return View(allMovies);
         }
     }
 }
