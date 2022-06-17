@@ -6,15 +6,15 @@ namespace TicketApp.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly AppDbContext _service;
 
-        public ActorsController(AppDbContext context)
+        public ActorsController(AppDbContext service)
         {
-            _context = context;
+            _service = service;
         }
         public async Task<IActionResult> Index()
         {
-            var allActors = await _context.Actors.ToListAsync();
+            var allActors = await _service.Actors.ToListAsync();
             return View(allActors);
         }
     }

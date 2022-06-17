@@ -2,14 +2,14 @@
 
 namespace TicketApp.Data.Services
 {
-    public interface Actors
+    public interface IActorsService
     {
-        IEnumerable<Actors> GetAll();
+        Task<IEnumerable<Actor>> GetAll();
         Actor GetById();
         void Update(int id, Actor newActor );
         Actor Add(int id);
         void Delete(int id);
-
+        
 
 
     }
