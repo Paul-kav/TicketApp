@@ -12,9 +12,10 @@ namespace TicketApp.Data.Services
             _context = context;
         }
 
-        public Actor Add(int id)
+        public async Task AddAsync(Actor actor)
         {
-            throw new NotImplementedException();
+            _context.Actors.Add(actor);
+            await _context.SaveChangesAsync();
         }
 
         public void Delete(int id)
@@ -28,9 +29,10 @@ namespace TicketApp.Data.Services
             return allActors;
         }
 
-        public Actor GetById()
+        public async Task<Actor> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var result = await _context.Actors.FirstOrDefaultAsync(n => n.Id == id);
+            return result;
         }
 
         public void Update(int id, Actor newActor)
