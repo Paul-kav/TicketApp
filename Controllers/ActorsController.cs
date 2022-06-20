@@ -17,5 +17,12 @@ namespace TicketApp.Controllers
             var allActors = await _service.Actors.ToListAsync();
             return View(allActors);
         }
+
+        public async Task<IActionResult> Create()
+        {
+            var allActors = await _service.Actors.ToListAsync();
+            return View(allActors);
+        }
+            
     }
 }
