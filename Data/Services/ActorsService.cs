@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TicketApp.Models;
+using System.Threading.Tasks;
 
 namespace TicketApp.Data.Services
 {
@@ -23,7 +24,7 @@ namespace TicketApp.Data.Services
             throw new NotImplementedException();
         }
 
-        public async Task<IEnumerable<Actor>> GetAll()
+        public async Task<IEnumerable<Actor>> GetAllAsync()
         {
             var allActors = await _context.Actors.ToListAsync();
             return allActors;
@@ -35,9 +36,18 @@ namespace TicketApp.Data.Services
             return result;
         }
 
-        public void Update(int id, Actor newActor)
+        public Task<Actor> GetByIdAsync()
         {
             throw new NotImplementedException();
         }
+
+        public async Task<Actor>UpdateAsync(int id, Actor newActor)
+        {
+
+            _context.Update(newActor);
+            await _context.SaveChangesAsync();
+            return newActor;
+        }
+
     }
 }

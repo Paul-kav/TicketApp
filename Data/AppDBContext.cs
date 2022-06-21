@@ -29,11 +29,6 @@ namespace TicketApp.Data
         public DbSet<Actor_Movie> Actors_Movies { get; set; }
         public DbSet<Cinema> Cinemas { get; set; }
 
-        internal Task GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public DbSet<Producer> Producers { get; set; }
+        
     }
 }

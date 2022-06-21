@@ -1,4 +1,6 @@
 ﻿using TicketApp.Models;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace TicketApp.Data.Services
 {
@@ -6,7 +8,7 @@ namespace TicketApp.Data.Services
     {
         Task<IEnumerable<Actor>> GetAllAsync();
         Task<Actor> GetByIdAsync();
-        Actor Update(int id, Actor newActor );
+        Task<Actor> UpdateAsync(int id, Actor newActor );
         Task AddAsync(Actor actor);
         void Delete(int id);
         
