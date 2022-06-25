@@ -1,21 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TicketApp.Data;
+using TicketApp.Data.Services;
 using TicketApp.Models;
 
 namespace TicketApp.Controllers
 {
     public class ActorsController : Controller
     {
-        private readonly AppDbContext _service;
+        // private readonly AppDbContext _service;
+        private readonly IActorsService _service;
 
-        public ActorsController(AppDbContext service)
+        public ActorsController(IActorsService service)
         {
             _service = service;
         }
         public async Task<IActionResult> Index()
         {
-            var allActors = await _service.Actors.ToListAsync();
+            var allActors = await _service.GetAllAsync();
             return View(allActors);
         }
         //Get:Actors/Create
