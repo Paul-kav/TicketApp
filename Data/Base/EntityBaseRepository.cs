@@ -12,9 +12,10 @@ namespace TicketApp.Data.Base
             _context = context;
         }
 
-        public Task AddAsync(T entity)
+        public async Task AddAsync(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Add(entity);
+            await _context.SaveChangesAsync();
         }
 
         public Task DeleteAsync(int id)
