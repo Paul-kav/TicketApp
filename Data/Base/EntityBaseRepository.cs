@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace TicketApp.Data.Base
 {
@@ -18,9 +19,11 @@ namespace TicketApp.Data.Base
             await _context.SaveChangesAsync();
         }
 
-        public Task DeleteAsync(int id)
+        public async Task DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var entity = _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);//we set the entity
+            EntityEntry entityEntry = _context.Entry(entity);
+            entityEntry.State = EntityState.Deleted;
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
@@ -36,10 +39,11 @@ namespace TicketApp.Data.Base
             return result;
         }
 
-        public Task<T> UpdateAsync(int id, T entity)
+        public async Task UpdateAsync(int id, T entity)
         {
-            throw new NotImplementedException();
+            EntityEntry entityEntry = _context.Entry(entity);
+            entityEntry.State = EntityState.Modified;
+            
         }
-        
     }
 }
