@@ -24,6 +24,8 @@ namespace TicketApp.Data.Base
             var entity = _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);//we set the entity
             EntityEntry entityEntry = _context.Entry(entity);
             entityEntry.State = EntityState.Deleted;
+            await _context.SaveChangesAsync();
+
         }
 
         public async Task<IEnumerable<T>> GetAllAsync()
@@ -43,6 +45,7 @@ namespace TicketApp.Data.Base
         {
             EntityEntry entityEntry = _context.Entry(entity);
             entityEntry.State = EntityState.Modified;
+            await _context.SaveChangesAsync();
             
         }
     }

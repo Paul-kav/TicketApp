@@ -1,19 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TicketApp.Models;
 using System.Threading.Tasks;
+using TicketApp.Data.Base;
 
 namespace TicketApp.Data.Services
 {
-    public class ActorsService : IActorsService
+    public class ActorsService : EntityBaseRepository<Actor>, IActorsService
     {
-        private readonly AppDbContext _context;
+        //private readonly AppDbContext _context;
 
-        public ActorsService(AppDbContext context)
+        public ActorsService(AppDbContext context) : base(context)
         {
-            _context = context;
+           // _context = context;
         }
 
-        public async Task AddAsync(Actor actor)
+       /* public async Task AddAsync(Actor actor)
         {
             _context.Actors.Add(actor);
             await _context.SaveChangesAsync();
@@ -46,7 +47,7 @@ namespace TicketApp.Data.Services
             _context.Update(newActor);
             await _context.SaveChangesAsync();
             return newActor;
-        }
+        }*/
 
     }
 }
