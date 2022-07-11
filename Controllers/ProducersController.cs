@@ -1,20 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TicketApp.Data;
+using TicketApp.Data.Services;
 
 namespace TicketApp.Controllers
 {
     public class ProducersController : Controller
     {
-        private readonly AppDbContext _context;
-        public ProducersController(AppDbContext context)
+        //inject the appdbcontext
+        // private readonly AppDbContext _context;
+
+        //inject the services
+        private readonly IProducersService _service;
+        public ProducersController(IProducersService service)
         {
-            _context = context;
+            _service = service;
         }
 
         public async Task<IActionResult> Index()
         {
-            var allProducers = await _context.Producers.ToListAsync();
+            var allProducers = await _service.GetAllAsync();
             return View(allProducers);
         }
     }
