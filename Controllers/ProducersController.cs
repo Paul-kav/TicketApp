@@ -49,5 +49,31 @@ namespace TicketApp.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        //GET: producers/edit/1
+        public async Task<IActionResult> Edit(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound");
+            return View(producerDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, [Bind("FullName,Id, Description")] Producer producer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(producer);
+            }
+            if(id == producer.Id)
+            {
+                await _service.UpdateAsync(id, producer);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(producer);
+           
+
+            
+        }
     }
 }
