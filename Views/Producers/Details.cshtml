@@ -1,7 +1,7 @@
-﻿@model Actor
+﻿@model Producer
 
 @{ 
-    ViewData["Title"] = "Details of the Actor";
+    ViewData["Title"] = "Details of the Producer";
 }
 
 <div class="row text">
@@ -17,9 +17,9 @@
                         <span asp-validation-for="FullName" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="Biography" class="control-label"></label>
-                        <input asp-for="Biography" class="form-control" readonly/>
-                        <span asp-validation-for="Biography" class="text-danger"></span>
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control" readonly/>
+                        <span asp-validation-for="Description" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                        
