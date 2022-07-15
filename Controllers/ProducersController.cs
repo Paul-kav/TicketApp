@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TicketApp.Data;
 using TicketApp.Data.Services;
+using TicketApp.Models;
 
 namespace TicketApp.Controllers
 {
@@ -31,6 +32,22 @@ namespace TicketApp.Controllers
             return View(producerDetails);
         }
 
+        //GET: producers/create
+        public async Task<IActionResult> Create()
+        {
+            return View();
+        }
 
+        [HttpPost]
+        public async Task<IActionResult> Create([Bind("FullName, Description")] Producer producer)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(producer);
+            }
+            await _service.AddAsync(producer);
+
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

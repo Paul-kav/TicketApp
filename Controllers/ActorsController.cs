@@ -58,6 +58,7 @@ namespace TicketApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Edit(int id, [Bind("Id,FullName, Biography")] Actor actor)
         {
+            //check model state validity
             if (!ModelState.IsValid)
             {
                 return View(actor);
