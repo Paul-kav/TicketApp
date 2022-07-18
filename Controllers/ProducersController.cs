@@ -75,5 +75,24 @@ namespace TicketApp.Controllers
 
             
         }
+
+        //GET: Producers/Delete/1
+        public async Task<IActionResult> Delete(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound");
+            return View(producerDetails);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var producerDetails = await _service.GetByIdAsync(id);
+            if (producerDetails == null) return View("NotFound"); //check if producer exists.
+
+            await _service.DeleteAsync(id);
+            return RedirectToAction(nameof(Index));
+
+        }
     }
 }

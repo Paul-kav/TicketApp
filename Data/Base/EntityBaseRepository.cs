@@ -21,8 +21,8 @@ namespace TicketApp.Data.Base
 
         public async Task DeleteAsync(int id)
         {
-            var entity = _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);//we set the entity
-            EntityEntry entityEntry = _context.Entry(entity);
+            var entity = await _context.Set<T>().FirstOrDefaultAsync(n => n.Id == id);//we set the entity
+            EntityEntry entityEntry = _context.Entry<T>(entity);
             entityEntry.State = EntityState.Deleted;
             await _context.SaveChangesAsync();
 
