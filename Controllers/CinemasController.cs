@@ -19,5 +19,13 @@ namespace TicketApp.Controllers
             return View(allCinemas);
         }
 
+        //GET: Cinemas/details/1
+        public async Task<IActionResult> Details(int id)
+        {
+            var cinemaDetails = await _service.GetByIdAsync(id);
+            if (cinemaDetails == null) return View("NotFound");
+            return View(cinemaDetails);
+        }
+
     }
 }
