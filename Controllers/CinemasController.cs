@@ -1,20 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TicketApp.Data;
+using TicketApp.Data.Services;
 
 namespace TicketApp.Controllers
 {
     public class CinemasController : Controller
     {
-        private readonly AppDbContext _context;
-        public CinemasController(AppDbContext context)
+        //private readonly AppDbContext _context;
+        private readonly ICinemasService _service;
+        public CinemasController(ICinemasService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var allCinemas = _context.Cinemas.ToList();
+            var allCinemas = await _service.GetAllAsync();
             return View(allCinemas);
         }
+
     }
 }
