@@ -54,7 +54,7 @@
                                         @foreach(var actor in Model.Actors_Movies)
                                         {
                                             <div class="flex-column text-center">
-                                                <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.Actor.Id">@actor.Actor.FullName</a>
+                                                <a asp-controller="Actors" asp-action="Details" asp-route-id="@actor.ActorId">@actor.Actor.FullName</a>
                                             </div>
 
 
