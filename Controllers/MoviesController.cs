@@ -27,5 +27,11 @@ namespace TicketApp.Controllers
             var movieDetails = await _service.GetMovieByIdAsync(id);
             return View(movieDetails);
         }
+
+        //GET: Movies/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
