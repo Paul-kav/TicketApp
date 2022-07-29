@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TicketApp.Data.Base;
+using TicketApp.Data.ViewModels;
 using TicketApp.Models;
 
 namespace TicketApp.Data.Services
@@ -21,6 +22,15 @@ namespace TicketApp.Data.Services
                 .FirstOrDefaultAsync(n => n.Id == id);
             return movieDetails;
 
+        }
+
+        public async Task<NewMovieDropdownsVM> GetNewMovieDropdownValues()
+        {
+            var response = new NewMovieDropdownsVM();
+            response.Actors = await _context.Actors.OrderBy(n => n.FullName).ToListAsync();
+            response.Cinemas = await _context.Cinemas.OrderBy(n => n.FullName).ToListAsync();
+            response.Producers = await _context.Producers.OrderBy(n => n.FullName).ToListAsync();
+            return response;
         }
     }
 }

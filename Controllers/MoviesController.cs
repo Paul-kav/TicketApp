@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using TicketApp.Data;
@@ -29,8 +30,12 @@ namespace TicketApp.Controllers
         }
 
         //GET: Movies/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var movieDropdownData = await _service.GetNewMovieDropdownValues();
+            ViewBag.Cinemas = new SelectList(movieDropdownData.Cinemas, "Id", "FullName");
+            ViewBag.Producers = new SelectList(movieDropdownData.Producers, "Id", "FullName");
+            ViewBag.Actors = new SelectList(movieDropdownData.Actors, "Id", "FullName");
             return View();
         }
     }
